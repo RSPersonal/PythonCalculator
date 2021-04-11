@@ -2,7 +2,7 @@
 
 #Dependencies
 from operations import Calculator, operations
-from visuals import logo, instance_calculator, instance_calculator_first_use
+from visuals import logo
 
 
 #Declaring variable for user 
@@ -26,15 +26,16 @@ while not exit:
     #Calling the Calculator class with the result method for the result 
     answer = Calculator().result(operation_symbol, num1, num2)
 
-    #
-
-    print(instance_calculator_first_use)
+    #Printing the ASCII art to console and the result string
     print(f"{num1} {operation_symbol} {num2} = {answer}")
     
+    #Checking if user wants to continue or not
     continue_calculation = input("Would you like to do further calculations with the answer?")
 
+    #Declaring variable to check if user wants to continue or not
     further_calculations = False
 
+    #
     while not further_calculations:
             
         if continue_calculation == 'Y' or continue_calculation == 'y':
@@ -49,25 +50,6 @@ while not exit:
             num3 = int(input("Please enter your number: "))
 
             answer = Calculator().result(operation_symbol, answer, num3)
-
-            instance_calculator = (f"""
-            _____________________
-            |  _________________  |
-            | | {old_answer} {operation_symbol} {num3} = {answer}     | |  
-            | |_________________| |
-            |  ___ ___ ___   ___  | 
-            | | 7 | 8 | 9 | | + | | 
-            | |___|___|___| |___| | 
-            | | 4 | 5 | 6 | | - | | 
-            | |___|___|___| |___| |
-            | | 1 | 2 | 3 | | x | | 
-            | |___|___|___| |___| | 
-            | | . | 0 | = | | / | | 
-            | |___|___|___| |___| |  
-            |_____________________|
-            """)
-
-            print(instance_calculator)
             print(f"{old_answer} {operation_symbol} {num3} = {answer}")
 
             continue_calculation = input("Would you like to do further calculations with the answer?")
