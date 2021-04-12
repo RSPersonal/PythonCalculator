@@ -10,8 +10,40 @@ exit = False
 
 while not exit:
     print(logo)
-    num1 = int(input("Whats the first number? "))
-    num2 = int(input("Whats the second number? "))
+
+    #Declaring varible of check 
+    numeric_num1 = False
+
+    #While loop to check if the input is numeric 
+    while not numeric_num1:
+        #Getting the input for number 1 from the user
+        num1 = input("Whats the first number? ")
+        num1 = Calculator().convert_to_int_or_float(num1)
+
+        if Calculator().is_numeric(num1): 
+            numeric_num1 = True
+            break
+        else:
+            print("Please enter a integer or float!")
+            num1 = input("Whats the first number? ")
+
+            if Calculator().is_numeric(num1):
+                break
+
+            continue
+    
+    #Declaring variable for check of number 2 
+    numeric_num2 = False
+    
+    while not numeric_num2:
+        num2 = int(input("Whats the second number? "))
+        if Calculator().is_numeric(num2):
+            numeric_num2 = True
+            break
+        else:
+            Print("Please enter a integer or float!")
+            num2 = input("Whats the second number? ")
+            continue
 
     #Showing all the operation options to the user
     for operation in operations:
@@ -54,7 +86,6 @@ while not exit:
 
             continue_calculation = input("Would you like to do further calculations with the answer?")
 
-            print()
             if continue_calculation == 'Y' or continue_calculation == 'y':
                 old_answer = answer
                 continue
