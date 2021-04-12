@@ -41,7 +41,7 @@ while not exit:
             numeric_num2 = True
             break
         else:
-            Print("Please enter a integer or float!")
+            print("Please enter a integer or float!")
             num2 = input("Whats the second number? ")
             continue
 
