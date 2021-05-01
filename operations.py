@@ -1,29 +1,48 @@
+"""The class for all operations"""
 
-class Calculator():
-    "A class for the math operations" 
-    def add(self, n1, n2):
-        return n1 + n2
+import numpy as np
 
-    def substract(self, n1, n2):
-        return n1 - n2
+class Calculator:
+    """A class for the math operations"""
 
-    def multiply(self, n1, n2):
-        return n1 * n2
+    @classmethod
+    def __init__(cls, n_one, n_two):
+        cls.n_one = n_one
+        cls.n_two = n_two
 
-    def divide(self, n1, n2):
-        return n1 / n2
+    @classmethod
+    def add(cls, n_one, n_two):
+        """Method for adding"""
+        return np.add(n_one, n_two)
 
-    def result(self, symbol, num1, num2):
+    @classmethod
+    def substract(cls,  n_one, n_two):
+        """Method for substracting"""
+        return  np.subtract(n_one, n_two)
+
+    @classmethod
+    def multiply(cls,  n_one, n_two):
+        """Method for multiplying"""
+        return  np.multiply(n_one, n_two)
+
+    @classmethod
+    def divide(cls,  n_one, n_two):
+        """Method for dividing"""
+        return  n_one / n_two
+
+    @classmethod
+    def result(cls, symbol, num_one, num_two):
+        """Method for calculating the result"""
         try:
             calculation_function = operations[symbol]
-            answer = calculation_function(self, num1, num2)
+            answer = calculation_function(num_one, num_two)
             return answer
-        except Exception as e:
-            print(e)
+        except ValueError as value_error:
+            print(value_error)
 
 operations =  {
     "+" : Calculator.add,
     "-" : Calculator.substract,
     "*" : Calculator.multiply,
     "/" : Calculator.divide
-    }
+}
